@@ -21,6 +21,8 @@ import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
+import { DishService } from '../services/dish.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,4 +48,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  dishes: Dish[];
+  selectedDish: Dish;
+
+  constructor(private dishService: DishService){
+
+    ngOnInit() {
+      this.dishes = this.dishService.getDishes();
+    }
+  }
+}
