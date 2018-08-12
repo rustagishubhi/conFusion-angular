@@ -21,7 +21,10 @@ import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
-import { DishService } from '../services/dish.service';
+import { DishService } from './services/dish.service';
+import { PromotionService } from './services/promotion.service';
+
+import { Dish } from './shared/dish'
 
 @NgModule({
   declarations: [
@@ -45,17 +48,19 @@ import { DishService } from '../services/dish.service';
     FlexLayoutModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PromotionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
   dishes: Dish[];
   selectedDish: Dish;
 
-  constructor(private dishService: DishService){
+  constructor(private dishService: DishService){ }
 
-    ngOnInit() {
-      this.dishes = this.dishService.getDishes();
-    }
+  ngOnInit() {
+    this.dishes = this.dishService.getDishes();
   }
 }
