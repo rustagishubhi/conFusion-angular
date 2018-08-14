@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 
 import { Dish } from './shared/dish'
 
@@ -49,7 +50,8 @@ import { Dish } from './shared/dish'
     AppRoutingModule
   ],
   providers: [
-    PromotionService
+    PromotionService,
+    LeaderService
   ],
   bootstrap: [AppComponent]
 })
