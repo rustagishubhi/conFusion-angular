@@ -3,9 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
 
-import { Params, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -13,19 +10,12 @@ import { Location } from '@angular/common';
 })
 export class AboutComponent implements OnInit {
 
-  leader = Leader;
+  leaders : Leader[];
 
-  constructor(private leaderservice: LeaderService,
-      private route: ActivatedRoute,
-      private location: Location) { }
+  constructor(private leaderService: LeaderService) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params['id'];
-    this.leaderservice.getLeader(id);
-  }
-
-  goBack(): void {
-    this.location.back();
+    this.leaders = this.leaderService.getLeaders();
   }
 
 }

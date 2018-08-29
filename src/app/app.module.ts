@@ -25,8 +25,6 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 
-import { Dish } from './shared/dish'
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,19 +48,10 @@ import { Dish } from './shared/dish'
     AppRoutingModule
   ],
   providers: [
+    DishService,
     PromotionService,
     LeaderService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-  dishes: Dish[];
-  selectedDish: Dish;
-
-  constructor(private dishService: DishService){ }
-
-  ngOnInit() {
-    this.dishes = this.dishService.getDishes();
-  }
-}
+export class AppModule { }
