@@ -18,7 +18,7 @@ export class LeaderService {
   }
 
   getFeaturedLeader(): Promise<Leader>{
-    return Promise.resolved(LEADERS.filter((leader) => leader.featured)[0]);
+    return Promise.resolve(LEADERS.filter((leader) => leader.featured)[0]);
   }
 
 }
